@@ -33,11 +33,19 @@ namespace Tobii_Gaze_GUI
 
         public void ResetLSLStream()
         {
-            host.Dispose();
-            gazePointDataStream = null;
-            gazeInfo = null;
-            gazeOutlet = null;
-            GC.Collect(); // Call the internal garbage collector
+            try
+            {
+                host.Dispose();
+                gazePointDataStream = null;
+                gazeInfo = null;
+                gazeOutlet = null;
+                GC.Collect(); // Call the internal garbage collector
+            }
+            catch (Exception e)
+            {
+
+            }
+            
         }
         private void streamLSLButton_CheckedChanged(object sender, EventArgs e)
         {
