@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LSL;
 using Tobii.Interaction;
-
 namespace Tobii_Gaze_GUI
 {
     public partial class GUI : Form
@@ -40,11 +32,8 @@ namespace Tobii_Gaze_GUI
                 gazeInfo = null;
                 gazeOutlet = null;
                 GC.Collect(); // Call the internal garbage collector
-            }
-            catch (Exception e)
-            {
-
-            }
+            } catch (Exception e){ _ = System.Windows.Forms.MessageBox.Show("Error: no stream to reset - try starting a stream before you reset."); }
+            finally{ CreateLSLStream(); }
             
         }
         private void streamLSLButton_CheckedChanged(object sender, EventArgs e)
