@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
             this.streamLSLButton = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lslHandle = new System.Windows.Forms.TextBox();
-            this.lslType = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.resetLSLButton = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lslType = new System.Windows.Forms.TextBox();
+            this.lslHandle = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,33 +63,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // lslHandle
-            // 
-            this.lslHandle.Location = new System.Drawing.Point(109, 35);
-            this.lslHandle.Name = "lslHandle";
-            this.lslHandle.Size = new System.Drawing.Size(109, 20);
-            this.lslHandle.TabIndex = 1;
-            this.lslHandle.Text = "TobiiGaze";
-            this.lslHandle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lslType
-            // 
-            this.lslType.Location = new System.Drawing.Point(109, 61);
-            this.lslType.Name = "lslType";
-            this.lslType.Size = new System.Drawing.Size(109, 20);
-            this.lslType.TabIndex = 2;
-            this.lslType.Text = "Gaze";
-            this.lslType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(106, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Stream Handle / Type";
-            // 
             // resetLSLButton
             // 
             this.resetLSLButton.Appearance = System.Windows.Forms.Appearance.Button;
@@ -101,6 +74,33 @@
             this.resetLSLButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.resetLSLButton.UseVisualStyleBackColor = true;
             this.resetLSLButton.CheckedChanged += new System.EventHandler(this.resetLSLButton_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(106, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Stream Handle / Type";
+            // 
+            // lslType
+            // 
+            this.lslType.Location = new System.Drawing.Point(109, 61);
+            this.lslType.Name = "lslType";
+            this.lslType.Size = new System.Drawing.Size(109, 20);
+            this.lslType.TabIndex = 2;
+            this.lslType.Text = "Gaze";
+            this.lslType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lslHandle
+            // 
+            this.lslHandle.Location = new System.Drawing.Point(109, 35);
+            this.lslHandle.Name = "lslHandle";
+            this.lslHandle.Size = new System.Drawing.Size(109, 20);
+            this.lslHandle.TabIndex = 1;
+            this.lslHandle.Text = "TobiiGaze";
+            this.lslHandle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // GUI
             // 
