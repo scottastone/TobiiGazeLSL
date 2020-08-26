@@ -31,10 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
             this.streamLSLButton = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numFixations = new System.Windows.Forms.TextBox();
+            this.lslFixationTypeHandle = new System.Windows.Forms.TextBox();
+            this.lslFixationHandle = new System.Windows.Forms.TextBox();
             this.resetLSLButton = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lslType = new System.Windows.Forms.TextBox();
             this.lslHandle = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +56,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.numFixations);
+            this.groupBox1.Controls.Add(this.lslFixationTypeHandle);
+            this.groupBox1.Controls.Add(this.lslFixationHandle);
             this.groupBox1.Controls.Add(this.resetLSLButton);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lslType);
@@ -59,9 +67,36 @@
             this.groupBox1.Controls.Add(this.streamLSLButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(226, 117);
+            this.groupBox1.Size = new System.Drawing.Size(340, 117);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // numFixations
+            // 
+            this.numFixations.Location = new System.Drawing.Point(279, 84);
+            this.numFixations.Margin = new System.Windows.Forms.Padding(2);
+            this.numFixations.Name = "numFixations";
+            this.numFixations.ReadOnly = true;
+            this.numFixations.Size = new System.Drawing.Size(56, 20);
+            this.numFixations.TabIndex = 7;
+            // 
+            // lslFixationTypeHandle
+            // 
+            this.lslFixationTypeHandle.Location = new System.Drawing.Point(226, 61);
+            this.lslFixationTypeHandle.Name = "lslFixationTypeHandle";
+            this.lslFixationTypeHandle.Size = new System.Drawing.Size(109, 20);
+            this.lslFixationTypeHandle.TabIndex = 6;
+            this.lslFixationTypeHandle.Text = "Fixation";
+            this.lslFixationTypeHandle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lslFixationHandle
+            // 
+            this.lslFixationHandle.Location = new System.Drawing.Point(226, 35);
+            this.lslFixationHandle.Name = "lslFixationHandle";
+            this.lslFixationHandle.Size = new System.Drawing.Size(109, 20);
+            this.lslFixationHandle.TabIndex = 5;
+            this.lslFixationHandle.Text = "TobiiFixation";
+            this.lslFixationHandle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // resetLSLButton
             // 
@@ -102,11 +137,20 @@
             this.lslHandle.Text = "TobiiGaze";
             this.lslHandle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(224, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Fixations:";
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 141);
+            this.ClientSize = new System.Drawing.Size(362, 144);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GUI";
@@ -125,5 +169,9 @@
         private System.Windows.Forms.TextBox lslHandle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox resetLSLButton;
+        private System.Windows.Forms.TextBox lslFixationTypeHandle;
+        private System.Windows.Forms.TextBox lslFixationHandle;
+        private System.Windows.Forms.TextBox numFixations;
+        private System.Windows.Forms.Label label2;
     }
 }
