@@ -8,18 +8,19 @@ namespace Tobii_Gaze_GUI
 {
     public partial class GUI : Form
     {
+        private static Host host;
+        private static GazePointDataStream gazePointDataStream;
+        private static FixationDataStream fixationDataStream;
+        private static liblsl.StreamInfo gazeInfo;
+        private static liblsl.StreamOutlet gazeOutlet;
+        private static liblsl.StreamInfo fixationInfo;
+        private static liblsl.StreamOutlet fixationOutlet;
+        public static Timer uptime_timer = new Timer();
+
         public GUI()
         {
             InitializeComponent();
         }
-        public static Host host;
-        public static GazePointDataStream gazePointDataStream;
-        public static FixationDataStream fixationDataStream;
-        public static liblsl.StreamInfo gazeInfo;
-        public static liblsl.StreamOutlet gazeOutlet;
-        public static liblsl.StreamInfo fixationInfo;
-        public static liblsl.StreamOutlet fixationOutlet;
-        public double lastTimestamp = 0;
         
         public void CreateLSLStream()
         {
@@ -36,7 +37,8 @@ namespace Tobii_Gaze_GUI
 
         public void ResetLSLStream()
         {
-            try {
+            try
+            {
                 host.Dispose();
                 gazePointDataStream = null;
                 gazeInfo = null;
@@ -44,8 +46,9 @@ namespace Tobii_Gaze_GUI
                 fixationDataStream = null;
                 fixationInfo = null;
                 fixationOutlet = null;
-                GC.Collect(); // Call the internal garbage collector - this fixes some shit
-            } catch (Exception e){ _ = System.Windows.Forms.MessageBox.Show("Error: no stream to reset - try starting a stream before you reset."); }
+                GC.Collect(); // Call the internal garbage collector
+            }
+            catch (Exception) { _ = MessageBox.Show("Error: no stream to reset - try starting a stream before you reset."); }
             finally{ CreateLSLStream(); }
             
         }
@@ -59,6 +62,8 @@ namespace Tobii_Gaze_GUI
 
             if (streamLSLButton.Checked == true)
             {
+                ResetTimer(uptime_timer);
+
                 CreateLSLStream();
                 gazePointDataStream.GazePoint((gazePointX, gazePointY, timestamp) => SendGazePos(gazePointX, gazePointY, timestamp, gazeOutlet));
                 // Fixation - Output looks like this:
@@ -80,7 +85,7 @@ namespace Tobii_Gaze_GUI
                             // TYPE 0 - BEGIN
                             fixationBeginTime = fixation.Data.Timestamp;
                             data[0] = fixation.Data.Timestamp;
-                            data[1] = 0;
+                            data[1] = 0; // begin code - 0
                             data[2] = fixationPointX; data[3] = fixationPointY;
                             data[4] = ID;
                             break;
@@ -88,7 +93,7 @@ namespace Tobii_Gaze_GUI
                         case FixationDataEventType.Data:
                             // TYPE 1 - DATA
                             data[0] = fixation.Data.Timestamp;
-                            data[1] = 1;
+                            data[1] = 1; // data code - 1
                             data[2] = fixationPointX; data[3] = fixationPointY;
                             data[4] = ID;
                             break;
@@ -96,7 +101,7 @@ namespace Tobii_Gaze_GUI
                         case FixationDataEventType.End:
                             // TYPE 2 - END
                             data[0] = fixation.Data.Timestamp;
-                            data[1] = 2;
+                            data[1] = 2; // end code - 2
                             data[2] = fixationPointX; data[3] = fixationPointY;
                             data[4] = ID;
                             ID = ID + 1; // Increment the data counter - this says we have one full fixation completed now.
@@ -112,6 +117,7 @@ namespace Tobii_Gaze_GUI
             else
             {
                 ResetLSLStream();
+                uptime_timer.Stop();
             }
         }
         private void resetLSLButton_CheckedChanged(object sender, EventArgs e)
@@ -123,6 +129,23 @@ namespace Tobii_Gaze_GUI
             double[] data = new double[3];
             data[0] = Timestamp; data[1] = X; data[2] = Y;
             Outlet.push_sample(data);
+        }
+
+        private void UpdateUptime(object sender, EventArgs e)
+        {
+            double uptime = double.Parse(uptimeTextbox.Text) + (uptime_timer.Interval / 1000d);
+            uptimeTextbox.Text = uptime.ToString();
+        }
+
+        private void ResetTimer(Timer timer)
+        {
+            timer.Interval = 100; // ms
+            timer.Tick -= new EventHandler(UpdateUptime);
+            timer.Tick += new EventHandler(UpdateUptime);
+            // check if timer has an eventhandler already
+            uptimeTextbox.Text = "0";
+            timer.Stop();
+            timer.Start();
         }
     }
 }

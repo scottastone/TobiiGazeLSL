@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
             this.streamLSLButton = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uptimeTextbox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.numFixations = new System.Windows.Forms.TextBox();
             this.lslFixationTypeHandle = new System.Windows.Forms.TextBox();
             this.lslFixationHandle = new System.Windows.Forms.TextBox();
@@ -38,7 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lslType = new System.Windows.Forms.TextBox();
             this.lslHandle = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +59,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.uptimeTextbox);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.numFixations);
             this.groupBox1.Controls.Add(this.lslFixationTypeHandle);
@@ -70,6 +76,34 @@
             this.groupBox1.Size = new System.Drawing.Size(340, 117);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // uptimeTextbox
+            // 
+            this.uptimeTextbox.Location = new System.Drawing.Point(153, 84);
+            this.uptimeTextbox.Name = "uptimeTextbox";
+            this.uptimeTextbox.ReadOnly = true;
+            this.uptimeTextbox.Size = new System.Drawing.Size(65, 20);
+            this.uptimeTextbox.TabIndex = 10;
+            this.uptimeTextbox.Text = "0";
+            this.uptimeTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(224, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Stream Handle / Type";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(224, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Fixations:";
             // 
             // numFixations
             // 
@@ -137,14 +171,14 @@
             this.lslHandle.Text = "TobiiGaze";
             this.lslHandle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label2
+            // label4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(224, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Fixations:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(106, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Uptime:";
             // 
             // GUI
             // 
@@ -153,6 +187,7 @@
             this.ClientSize = new System.Drawing.Size(362, 144);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "GUI";
             this.Text = "Tobii LSL Gaze Streamer";
             this.groupBox1.ResumeLayout(false);
@@ -173,5 +208,8 @@
         private System.Windows.Forms.TextBox lslFixationHandle;
         private System.Windows.Forms.TextBox numFixations;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox uptimeTextbox;
+        private System.Windows.Forms.Label label4;
     }
 }
