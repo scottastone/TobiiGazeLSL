@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tobii Gaze GUI", "Tobii Gaze GUI\Tobii Gaze GUI.csproj", "{6E2AB51F-0520-4594-A0AF-48B730B0F11A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSL Gaze and Mouser Streamer", "Tobii Gaze GUI\LSL Gaze and Mouser Streamer.csproj", "{6E2AB51F-0520-4594-A0AF-48B730B0F11A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream Viewer", "Stream Viewer\Stream Viewer.csproj", "{945AFC84-9E28-4A95-B85A-9C1025273348}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,18 @@ Global
 		{6E2AB51F-0520-4594-A0AF-48B730B0F11A}.x64|Any CPU.Build.0 = x64|Any CPU
 		{6E2AB51F-0520-4594-A0AF-48B730B0F11A}.x64|x64.ActiveCfg = x64|x64
 		{6E2AB51F-0520-4594-A0AF-48B730B0F11A}.x64|x64.Build.0 = x64|x64
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.Debug|x64.Build.0 = Debug|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.Release|x64.ActiveCfg = Release|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.Release|x64.Build.0 = Release|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.x64|Any CPU.ActiveCfg = Debug|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.x64|Any CPU.Build.0 = Debug|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.x64|x64.ActiveCfg = Debug|Any CPU
+		{945AFC84-9E28-4A95-B85A-9C1025273348}.x64|x64.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
